@@ -29,10 +29,10 @@ export default function CartPage() {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div className="flex flex-col space-y-8">
                 <div className="flex items-center gap-4">
-                    <Link href="/" className="text-zinc-500 hover:text-zinc-900 transition-colors">
+                    <Link href="/" className="text-muted-foreground hover:text-olive transition-colors">
                         <ArrowLeft className="h-5 w-5" />
                     </Link>
-                    <h1 className="text-3xl font-bold tracking-tight text-zinc-900">Shopping Cart</h1>
+                    <h1 className="text-3xl font-bold tracking-tight text-brown">Shopping Cart</h1>
                 </div>
 
                 <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-3">
@@ -41,9 +41,9 @@ export default function CartPage() {
                         {items.map((item) => (
                             <div
                                 key={item.id}
-                                className="flex items-center gap-6 border-b border-zinc-100 pb-6 last:border-0"
+                                className="flex items-center gap-6 border-b border-border pb-6 last:border-0"
                             >
-                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-zinc-100">
+                                <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-lg bg-muted border border-border/50">
                                     <Image
                                         src={item.image}
                                         alt={item.name}
@@ -56,14 +56,14 @@ export default function CartPage() {
                                 <div className="flex flex-1 flex-col justify-between self-stretch py-1">
                                     <div className="flex justify-between">
                                         <div>
-                                            <h3 className="font-medium text-zinc-900">
-                                                <Link href={`/product/${item.id}`} className="hover:underline">
+                                            <h3 className="font-bold text-brown">
+                                                <Link href={`/product/${item.id}`} className="hover:text-olive transition-colors">
                                                     {item.name}
                                                 </Link>
                                             </h3>
-                                            <p className="mt-1 text-sm text-zinc-500">{item.category}</p>
+                                            <p className="mt-1 text-xs text-muted-foreground uppercase tracking-wider">{item.category}</p>
                                         </div>
-                                        <p className="font-medium text-zinc-900">
+                                        <p className="font-bold text-olive">
                                             {new Intl.NumberFormat('en-US', {
                                                 style: 'currency',
                                                 currency: item.currency,
@@ -72,24 +72,24 @@ export default function CartPage() {
                                     </div>
 
                                     <div className="flex items-center justify-between">
-                                        <div className="flex items-center border border-zinc-200 rounded-md">
+                                        <div className="flex items-center border border-border bg-white rounded-md">
                                             <button
                                                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                                                className="p-1 px-2 hover:bg-zinc-50 transition-colors text-zinc-500"
+                                                className="p-1 px-2 hover:bg-muted transition-colors text-muted-foreground"
                                             >
                                                 <Minus className="h-3 w-3" />
                                             </button>
-                                            <span className="px-4 text-sm font-medium tabular-nums">{item.quantity}</span>
+                                            <span className="px-4 text-sm font-bold text-brown tabular-nums">{item.quantity}</span>
                                             <button
                                                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                                                className="p-1 px-2 hover:bg-zinc-50 transition-colors text-zinc-500"
+                                                className="p-1 px-2 hover:bg-muted transition-colors text-muted-foreground"
                                             >
                                                 <Plus className="h-3 w-3" />
                                             </button>
                                         </div>
                                         <button
                                             onClick={() => removeItem(item.id)}
-                                            className="text-sm font-medium text-zinc-400 hover:text-red-500 transition-colors flex items-center gap-1"
+                                            className="text-sm font-medium text-muted-foreground hover:text-red-600 transition-colors flex items-center gap-1"
                                         >
                                             <Trash2 className="h-4 w-4" />
                                             Remove
@@ -102,13 +102,13 @@ export default function CartPage() {
 
                     {/* Summary */}
                     <div className="lg:col-span-1">
-                        <div className="rounded-xl bg-zinc-50 p-6 sticky top-24">
-                            <h2 className="text-lg font-bold text-zinc-900">Order Summary</h2>
+                        <div className="rounded-xl bg-white border border-border p-6 shadow-sm sticky top-24">
+                            <h2 className="text-lg font-bold text-brown uppercase tracking-wider">Order Summary</h2>
 
                             <div className="mt-6 space-y-4">
                                 <div className="flex items-center justify-between text-sm">
-                                    <span className="text-zinc-500">Subtotal</span>
-                                    <span className="font-medium text-zinc-900">
+                                    <span className="text-muted-foreground">Subtotal</span>
+                                    <span className="font-bold text-brown">
                                         {new Intl.NumberFormat('en-US', {
                                             style: 'currency',
                                             currency: 'USD',
@@ -116,16 +116,16 @@ export default function CartPage() {
                                     </span>
                                 </div>
                                 <div className="flex items-center justify-between text-sm">
-                                    <span className="text-zinc-500">Shipping</span>
-                                    <span className="font-medium text-zinc-900">Calculated at next step</span>
+                                    <span className="text-muted-foreground">Shipping</span>
+                                    <span className="font-medium text-olive">Calculated at next step</span>
                                 </div>
                                 <div className="flex items-center justify-between text-sm">
-                                    <span className="text-zinc-500">Tax</span>
-                                    <span className="font-medium text-zinc-900">Included</span>
+                                    <span className="text-muted-foreground">Tax</span>
+                                    <span className="font-medium text-brown">Included</span>
                                 </div>
-                                <div className="border-t border-zinc-200 pt-4 flex items-center justify-between">
-                                    <span className="font-bold text-zinc-900">Total</span>
-                                    <span className="font-bold text-zinc-900 text-lg">
+                                <div className="border-t border-border pt-4 flex items-center justify-between">
+                                    <span className="font-bold text-brown">Total</span>
+                                    <span className="font-bold text-olive text-xl">
                                         {new Intl.NumberFormat('en-US', {
                                             style: 'currency',
                                             currency: 'USD',
@@ -135,13 +135,13 @@ export default function CartPage() {
                             </div>
 
                             <Link href="/checkout">
-                                <Button className="mt-8 w-full h-12 text-base shadow-lg shadow-zinc-200">
+                                <Button className="mt-8 w-full h-12 text-base shadow-lg shadow-olive/10 bg-olive hover:bg-olive/95 text-white">
                                     Proceed to Checkout
                                 </Button>
                             </Link>
 
-                            <p className="mt-4 text-center text-xs text-zinc-400">
-                                Secure checkout powered by Stratus Engine.
+                            <p className="mt-4 text-center text-[10px] text-muted-foreground uppercase tracking-widest font-bold">
+                                Stratus Engine Protocol
                             </p>
                         </div>
                     </div>

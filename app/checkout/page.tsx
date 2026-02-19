@@ -35,56 +35,56 @@ export default function CheckoutPage() {
                 {/* Form */}
                 <div className="space-y-8">
                     <div className="flex items-center gap-4">
-                        <Link href="/cart" className="text-zinc-500 hover:text-zinc-900 transition-colors">
+                        <Link href="/cart" className="text-muted-foreground hover:text-olive transition-colors">
                             <ArrowLeft className="h-5 w-5" />
                         </Link>
-                        <h1 className="text-3xl font-bold tracking-tight text-zinc-900">Checkout</h1>
+                        <h1 className="text-3xl font-bold tracking-tight text-brown">Checkout</h1>
                     </div>
 
                     <form onSubmit={handleCheckout} className="space-y-10">
                         <div className="space-y-4">
-                            <h2 className="text-lg font-semibold text-zinc-900">Shipping Information</h2>
+                            <h2 className="text-lg font-bold text-brown uppercase tracking-wider">Shipping Information</h2>
                             <div className="grid grid-cols-2 gap-4">
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-zinc-700">First Name</label>
-                                    <Input required placeholder="John" />
+                                    <label className="text-xs font-bold text-olive uppercase tracking-widest">First Name</label>
+                                    <Input required placeholder="John" className="bg-white" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-zinc-700">Last Name</label>
-                                    <Input required placeholder="Doe" />
+                                    <label className="text-xs font-bold text-olive uppercase tracking-widest">Last Name</label>
+                                    <Input required placeholder="Doe" className="bg-white" />
                                 </div>
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-zinc-700">Email Address</label>
-                                <Input required type="email" placeholder="john@example.com" />
+                                <label className="text-xs font-bold text-olive uppercase tracking-widest">Email Address</label>
+                                <Input required type="email" placeholder="john@example.com" className="bg-white" />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-zinc-700">Shipping Address</label>
-                                <Input required placeholder="123 Performance St" />
+                                <label className="text-xs font-bold text-olive uppercase tracking-widest">Shipping Address</label>
+                                <Input required placeholder="123 Performance St" className="bg-white" />
                             </div>
                         </div>
 
                         <div className="space-y-4">
-                            <h2 className="text-lg font-semibold text-zinc-900">Payment Details</h2>
+                            <h2 className="text-lg font-bold text-brown uppercase tracking-wider">Payment Details</h2>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-zinc-700">Card Number</label>
-                                <Input required placeholder="0000 0000 0000 0000" />
+                                <label className="text-xs font-bold text-olive uppercase tracking-widest">Card Number</label>
+                                <Input required placeholder="0000 0000 0000 0000" className="bg-white" />
                             </div>
                             <div className="grid grid-cols-3 gap-4">
                                 <div className="col-span-2 space-y-2">
-                                    <label className="text-sm font-medium text-zinc-700">Expiry</label>
-                                    <Input required placeholder="MM / YY" />
+                                    <label className="text-xs font-bold text-olive uppercase tracking-widest">Expiry</label>
+                                    <Input required placeholder="MM / YY" className="bg-white" />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-sm font-medium text-zinc-700">CVC</label>
-                                    <Input required placeholder="000" />
+                                    <label className="text-xs font-bold text-olive uppercase tracking-widest">CVC</label>
+                                    <Input required placeholder="000" className="bg-white" />
                                 </div>
                             </div>
                         </div>
 
                         <Button
                             type="submit"
-                            className="w-full h-12 text-base"
+                            className="w-full h-12 text-base bg-olive text-white hover:bg-olive/95"
                             disabled={isProcessing}
                         >
                             {isProcessing ? (
@@ -104,15 +104,15 @@ export default function CheckoutPage() {
 
                 {/* Order Summary */}
                 <div className="hidden lg:block">
-                    <div className="bg-zinc-50 rounded-xl p-8 border border-zinc-100">
-                        <h2 className="text-lg font-bold text-zinc-900 mb-6">In your cart</h2>
+                    <div className="bg-white rounded-xl p-8 border border-border shadow-sm">
+                        <h2 className="text-lg font-bold text-brown uppercase tracking-wider mb-6">In your cart</h2>
                         <div className="space-y-4 max-h-[400px] overflow-auto pr-2">
                             {items.map((item) => (
                                 <div key={item.id} className="flex justify-between text-sm">
-                                    <div className="text-zinc-600">
-                                        <span className="font-medium text-zinc-900">{item.quantity}x</span> {item.name}
+                                    <div className="text-muted-foreground font-medium">
+                                        <span className="font-bold text-olive">{item.quantity}x</span> {item.name}
                                     </div>
-                                    <div className="font-medium text-zinc-900">
+                                    <div className="font-bold text-brown">
                                         {new Intl.NumberFormat('en-US', {
                                             style: 'currency',
                                             currency: item.currency,
@@ -121,19 +121,19 @@ export default function CheckoutPage() {
                                 </div>
                             ))}
                         </div>
-                        <div className="border-t border-zinc-200 mt-6 pt-6 space-y-2">
+                        <div className="border-t border-border mt-6 pt-6 space-y-2">
                             <div className="flex justify-between text-sm">
-                                <span className="text-zinc-500">Subtotal</span>
-                                <span className="font-medium text-zinc-900">
+                                <span className="text-muted-foreground">Subtotal</span>
+                                <span className="font-bold text-brown">
                                     {new Intl.NumberFormat('en-US', {
                                         style: 'currency',
                                         currency: 'USD',
                                     }).format(cartTotal)}
                                 </span>
                             </div>
-                            <div className="flex justify-between text-lg font-bold pt-2">
-                                <span>Total</span>
-                                <span>
+                            <div className="flex justify-between text-lg font-bold pt-2 border-t border-dotted border-border mt-2">
+                                <span className="text-brown">Total</span>
+                                <span className="text-olive">
                                     {new Intl.NumberFormat('en-US', {
                                         style: 'currency',
                                         currency: 'USD',

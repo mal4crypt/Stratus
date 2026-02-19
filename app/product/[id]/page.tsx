@@ -33,7 +33,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 gap-x-12 gap-y-10 lg:grid-cols-2">
                 {/* Image Gallery */}
-                <div className="overflow-hidden rounded-xl bg-zinc-100">
+                <div className="overflow-hidden rounded-xl bg-muted border border-border">
                     <Image
                         src={product.image}
                         alt={product.name}
@@ -47,9 +47,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 {/* Product Info */}
                 <div className="flex flex-col justify-center space-y-8">
                     <div className="space-y-2">
-                        <p className="text-sm font-medium text-zinc-500">{product.category}</p>
-                        <h1 className="text-4xl font-bold tracking-tight text-zinc-900">{product.name}</h1>
-                        <p className="text-2xl font-medium text-zinc-900">
+                        <p className="text-sm font-semibold text-olive uppercase tracking-wider">{product.category}</p>
+                        <h1 className="text-4xl font-bold tracking-tight text-brown">{product.name}</h1>
+                        <p className="text-2xl font-bold text-olive">
                             {new Intl.NumberFormat('en-US', {
                                 style: 'currency',
                                 currency: product.currency,
@@ -58,25 +58,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     </div>
 
                     <div className="space-y-4">
-                        <h2 className="text-sm font-medium text-zinc-900">Description</h2>
-                        <p className="text-base text-zinc-600 leading-relaxed">
+                        <h2 className="text-sm font-bold text-brown uppercase tracking-wider">Description</h2>
+                        <p className="text-base text-muted-foreground leading-relaxed">
                             {product.description}
                         </p>
                     </div>
 
                     <div className="pt-4">
-                        <AddToCartButton product={product} />
+                        <AddToCartButton product={product} className="bg-olive hover:bg-olive/95 text-white" />
                     </div>
 
-                    <div className="border-t border-zinc-100 pt-8">
+                    <div className="border-t border-border pt-8">
                         <div className="grid grid-cols-2 gap-4 text-sm">
                             <div>
-                                <dt className="font-medium text-zinc-900">Shipping</dt>
-                                <dd className="text-zinc-500">Free worldwide shipping on all orders over $500.</dd>
+                                <dt className="font-bold text-brown">Shipping</dt>
+                                <dd className="text-muted-foreground">Free worldwide shipping on all orders over $500.</dd>
                             </div>
                             <div>
-                                <dt className="font-medium text-zinc-900">Returns</dt>
-                                <dd className="text-zinc-500">30-day return policy for unused items.</dd>
+                                <dt className="font-bold text-brown">Returns</dt>
+                                <dd className="text-muted-foreground">30-day return policy for unused items.</dd>
                             </div>
                         </div>
                     </div>

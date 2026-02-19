@@ -24,10 +24,10 @@ export default async function HomePage({ searchParams }: HomePageProps) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div className="flex flex-col space-y-4">
-        <h1 className="text-3xl font-bold tracking-tight text-zinc-900">
+        <h1 className="text-3xl font-bold tracking-tight text-brown">
           {q ? `Results for "${q}"` : "All Products"}
         </h1>
-        <p className="text-zinc-500">
+        <p className="text-muted-foreground font-medium">
           Precision-engineered essentials for the modern digital workspace.
         </p>
       </div>
