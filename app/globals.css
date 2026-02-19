@@ -1,13 +1,16 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fdfcf0; /* Cream */
-  --foreground: #4a3728; /* Brown */
+  --background: #fdfcf0;
+  /* Cream */
+  --foreground: #4a3728;
+  /* Brown */
   --brand-olive: #3d4021;
+  --brand-olive-dark: #2a2c17;
   --brand-cream: #fdfcf0;
   --brand-brown: #4a3728;
   --brand-white: #ffffff;
-  
+
   --card: #ffffff;
   --card-foreground: #4a3728;
   --muted: #f4f2e1;
@@ -19,6 +22,7 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-olive: var(--brand-olive);
+  --color-olive-dark: var(--brand-olive-dark);
   --color-cream: var(--brand-cream);
   --color-brown: var(--brand-brown);
   --color-white: var(--brand-white);
